@@ -1,0 +1,8 @@
+Some lisp editing tools. I don't know where else to put them.
+
+So far this is just:
+
+{{{lisp-reinsert-as-pp}}}
+
+which is a command to read the s-expression at point and pretty prints
+it back into the buffer.
