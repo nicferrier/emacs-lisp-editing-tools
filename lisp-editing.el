@@ -6,7 +6,7 @@
 ;; Maintainer: Nic Ferrier  <nferrier@ferrier.me.uk>
 ;; Created: 18th August 2012
 ;; Keywords: lisp
-;; Version: 0.0.2
+;; Version: 0.0.3
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -26,6 +26,26 @@
 ;; Some lisp editing tools.
 
 ;;; Code:
+
+(defun lisp-package-time-now ()
+  "Produce the current time in a package friendly format.
+
+If called interactively it inserts at point."
+  (interactive)
+  (let ((time-str
+         (format-time-string
+          (format
+           "%%d%s %%B %%Y"
+           (let ((day (string-to-number (format-time-string "%d"))))
+             (if
+              (or (and (<= 4 day) (<= day 20))
+                  (and (<= 24 day) (<= day 30)))
+              "th"
+              ;; Else one of the others
+              (elt ["st" "nd" "rd"] (- (% day 10) 1))))))))
+    (if (called-interactively-p 'interactive)
+        (insert time-str)
+        time-str)))
 
 ;;;###autoload
 (defun lisp-reinsert-as-pp ()
@@ -96,6 +116,7 @@ Returns the results of the FN as a list."
          (message "loading %s" filename)
          (when (file-exists-p filename)
            (load-file filename)))))))
+
 
 (provide 'lisp-editing)
 
