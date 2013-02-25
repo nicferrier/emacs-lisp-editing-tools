@@ -6,7 +6,7 @@
 ;; Maintainer: Nic Ferrier  <nferrier@ferrier.me.uk>
 ;; Created: 18th August 2012
 ;; Keywords: lisp
-;; Version: 0.0.3
+;; Version: 0.0.4
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
