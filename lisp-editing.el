@@ -47,6 +47,31 @@ If called interactively it inserts at point."
         (insert time-str)
         time-str)))
 
+
+(defun lisp-lexbind-modeline ()
+  "Add LEX to the modeline."
+  ;; not sure about this: mode-line-modes is a cust var
+  ;; we're breaking customization by doing this
+  (interactive)
+  (add-to-list
+   'mode-line-modes
+   '(:eval
+     (when lexical-binding "LEX"))))
+
+(defun lisp-lexscratch (&optional other-window)
+  "Make a lexical scratch buffer."
+  (interactive "P")
+  (let ((buf (get-buffer "*lexscratch*")))
+    (unless buf
+      (setq buf (get-buffer-create "*lexscratch*"))
+      (with-current-buffer buf
+        (lisp-interaction-mode)
+        (setq lexical-binding t)
+        (insert initial-scratch-message)))
+    (if other-window
+        (switch-to-buffer-other-window buf)
+        (switch-to-buffer buf))))
+
 ;;;###autoload
 (defun lisp-reinsert-as-pp ()
   "Read sexp at point, delete it and pretty print it back in."
