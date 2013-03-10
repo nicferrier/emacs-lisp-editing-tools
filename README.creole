@@ -1,8 +1,35 @@
 Some lisp editing tools. I don't know where else to put them.
 
-So far this is just:
+They probably need renaming because they pollute the {{{lisp-}}} namespace
+in Emacs but for now... hey.
 
-{{{lisp-reinsert-as-pp}}}
 
-which is a command to read the s-expression at point and pretty prints
-it back into the buffer.
+=== lisp-lexbind-modeline  ===
+
+Add LEX to the modeline.
+
+
+=== lisp-lexscratch &optional other-window ===
+
+Make a lexical scratch buffer.
+
+
+=== lisp-load-all filename ===
+
+Load all the files in a package.
+
+Takes a filename that specifies all the files in a package.
+
+
+=== lisp-package-time-now  ===
+
+Produce the current time in a package friendly format.
+
+If called interactively it inserts at point.
+
+
+=== lisp-reinsert-as-pp  ===
+
+Read sexp at point, delete it and pretty print it back in.
+
+

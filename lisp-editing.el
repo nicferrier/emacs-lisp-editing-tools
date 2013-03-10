@@ -7,6 +7,7 @@
 ;; Created: 18th August 2012
 ;; Keywords: lisp
 ;; Version: 0.0.5
+;; Url: http://github.com/nicferrier/emacs-lisp-editing-tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
