@@ -6,7 +6,7 @@
 ;; Maintainer: Nic Ferrier  <nferrier@ferrier.me.uk>
 ;; Created: 18th August 2012
 ;; Keywords: lisp
-;; Version: 0.0.5
+;; Version: 0.0.6
 ;; Url: http://github.com/nicferrier/emacs-lisp-editing-tools
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -27,6 +27,8 @@
 ;; Some lisp editing tools.
 
 ;;; Code:
+
+(require 'pp)
 
 (defun lisp-package-time-now ()
   "Produce the current time in a package friendly format.
